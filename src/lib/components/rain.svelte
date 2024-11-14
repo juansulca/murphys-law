@@ -7,7 +7,7 @@
 		const drop = {
 			id: Date.now(),
 			left: `${Math.random() * 100}vw`,
-			animationDuration: `${Math.random() * 2 + 1}s`
+			animationDuration: `${Math.random() * 1.2 + 0.5}s`
 		};
 
 		raindrops = [...raindrops, drop];

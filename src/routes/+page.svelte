@@ -9,7 +9,9 @@
 	import f1p from '$lib/assets/Black1.png';
 	import f2p from '$lib/assets/Black2.png';
 	import f3p from '$lib/assets/Black3.png';
+	import Water from '$lib/components/water.svelte';
 
+	let ch = $state(0);
 	let y = $state(0);
 	let x = $state(0);
 	let reached = $state(false);
@@ -22,13 +24,17 @@
 
 	// TODO: update the max value (1000) to match the height of the screen
 	$effect(() => {
-		x = map(y, 0, 1000, 0, 90);
-		if (x > 80) {
-			reached = true;
+		x = map(y, 0, ch * 0.6, 0, 90);
+		if (x > 25) {
+			reached = false;
 			imgs = [f1p, f2p, f3p];
 		} else {
 			reached = false;
 			imgs = [f1, f2, f3];
+		}
+
+		if (x > 80) {
+			reached = true;
 		}
 	});
 
@@ -43,15 +49,18 @@
 	};
 </script>
 
-<svelte:window bind:scrollY={y} />
+<svelte:window bind:scrollY={y} bind:outerHeight={ch} />
 
 <main class="h-[200vh] hide-scroll">
 	<div
 		class="sticky top-0 w-screen h-screen p-8 flex flex-col gap-7 justify-center"
 		class:bg-gray-50={reached}
 	>
-		<Rain rainColor={reached ? 'rgba(20, 20, 20, 0.6)' : 'rgba(255, 255, 255, 0.6)'} />
-		<div class="w-full text-slate-100" class:text-slate-950={reached}>
+		{#if x > 1}
+			<Rain rainColor={reached ? 'rgba(20, 20, 20, 0.6)' : 'rgba(255, 255, 255, 0.6)'} />
+			<Water level={x} />
+		{/if}
+		<div class="w-full text-slate-100" class:text-slate-950={x > 70}>
 			<h2 class="text-2xl font-semibold">Have you ever encountered a situation where</h2>
 			<h1 class="text-4xl font-bold">The one day you forget to carry your umbrella it rains?</h1>
 			<div class="mt-4 h-12">
@@ -86,8 +95,8 @@
 			<div class="flex items-end mb-8 mr-8">
 				<div
 					class="w-32 p-2 grid grid-cols-2 text-slate-100 border"
-					class:text-slate-950={reached}
-					class:border-slate-950={reached}
+					class:text-slate-950={x > 25}
+					class:border-slate-950={x > 25}
 				>
 					<div class="font-bold">LIFE</div>
 					<div class="text-right">{score.life.toString().padStart(2, '0')}</div>

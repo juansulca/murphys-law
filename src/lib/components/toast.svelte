@@ -2,7 +2,7 @@
 	import toast from '$lib/assets/toast.svg';
 </script>
 
-<div class="container">
+<div class="container fall-in">
 	<img src={toast} alt="Toasted bread" class="background-toast" />
 	<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="background-butter">
 		<path
@@ -18,7 +18,7 @@
 		position: fixed;
 		top: 0;
 		left: 0;
-		width: 100%;
+		width: 100vw;
 		height: 100vh;
 		pointer-events: none;
 		overflow: hidden;
@@ -32,7 +32,7 @@
 		transform: translate(-50%, -50%); /* Center the image */
 		width: 50vw; /* Adjust the size of the toast image relative to viewport */
 		height: auto;
-		opacity: 0.6; /* Add some transparency if needed */
+		opacity: 0.8; /* Add some transparency if needed */
 		object-fit: cover; /* Ensure it covers the background well */
 	}
 
@@ -43,7 +43,28 @@
 		transform: translate(-50%, -50%); /* Center the image */
 		width: 50vw; /* Adjust the size of the toast image relative to viewport */
 		height: auto;
-		opacity: 0.6; /* Add some transparency if needed */
+		opacity: 0.7; /* Add some transparency if needed */
 		object-fit: cover;
+	}
+
+	@keyframes fallIn {
+		0% {
+			transform: translate(50%, -50%);
+			rotate: 60deg;
+			scale: 20%;
+			opacity: 0;
+		}
+		20% {
+			opacity: 1;
+		}
+		100% {
+			rotate: -5deg;
+			scale: 100%;
+			transform: translate(0, 0);
+		}
+	}
+
+	.fall-in {
+		animation: fallIn 0.5s ease-in forwards;
 	}
 </style>

@@ -21,7 +21,7 @@
 
 <main class="w-screen h-screen p-8 flex flex-col gap-7 justify-center bg-gray-50">
 	<Toast />
-	<h2 class="text-4xl font-bold">Does your toast always land butter side down?</h2>
+	<h2 class="text-4xl font-bold z-10">Does your toast always land butter side down?</h2>
 	<div>
 		<button
 			onclick={onClickYes}
