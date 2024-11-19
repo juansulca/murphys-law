@@ -42,7 +42,7 @@
 		</div>
 		{#if incremented}
 			<div class="absolute right-8 top-1/2 text-4xl animate-bounce">
-				<a href="/title">➡️</a>
+				<a href="/queue">➡️</a>
 			</div>
 		{/if}
 	</div>
