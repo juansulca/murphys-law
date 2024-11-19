@@ -1,6 +1,9 @@
 <script>
 	import { score } from '$lib/score.svelte';
-	import { onMount } from 'svelte';
+
+	let ch = $state(0);
+	let y = $state(0);
+	let shouldShow = $state(false);
 
 	let title = $state('Well, these are classical examples of');
 
@@ -13,6 +16,14 @@
 	let initialText = 'Life su';
 	let typingSpeed = 150;
 	let correctedText = "Murphy's Law!";
+	let showPart3 = $state(false);
+
+	$effect(() => {
+		if (!shouldShow && y > ch * 0.8) {
+			shouldShow = true;
+			typeText();
+		}
+	});
 
 	async function typeText() {
 		typing = true;
@@ -34,21 +45,25 @@
 			await new Promise((resolve) => setTimeout(resolve, typingSpeed));
 		}
 		typing = false;
+		showPart3 = true;
 	}
-
-	onMount(() => {
-		typeText();
-	});
 </script>
 
-<main class="w-screen h-screen text-slate-50 flex flex-col justify-center p-8 gap-6">
-	<h2 class="text-4xl mb-8">{title} :</h2>
-	<h1 class="writing part-2 text-8xl">
-		{displayedText}
-		<b class:typing>&nbsp;</b>
-	</h1>
+<svelte:window bind:scrollY={y} />
 
-	<a href="/law" class="text-6xl part-3 text-center">What is that?</a>
+<main class="w-screen h-[600vh] text-slate-50 p-8" bind:clientHeight={ch}>
+	<h2 class="text-4xl mb-8">{title} :</h2>
+	<div class="h-[500vh] w-screen"></div>
+	{#if shouldShow}
+		<div class="w-screen h-[80vh] flex flex-col justify-center items-center gap-10">
+			<h1 class="part-2 text-8xl" class:writing={shouldShow}>
+				{displayedText}
+				<b class:typing>&nbsp;</b>
+			</h1>
+
+			<a href="/law" class="text-6xl text-center part-3">What is that?</a>
+		</div>
+	{/if}
 </main>
 
 <style>
@@ -57,9 +72,10 @@
 	}
 
 	.part-3 {
-		animation: fade-in 1s ease-in-out forwards;
-		animation-delay: 6s;
+		animation: fade-in 1s ease-in-out;
+		animation-delay: 8s;
 		opacity: 0;
+		animation-fill-mode: forwards;
 	}
 
 	.writing {
