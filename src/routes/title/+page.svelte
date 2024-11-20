@@ -16,7 +16,6 @@
 	let initialText = 'Life su';
 	let typingSpeed = 150;
 	let correctedText = "Murphy's Law!";
-	let showPart3 = $state(false);
 
 	$effect(() => {
 		if (!shouldShow && y > ch * 0.8) {
@@ -45,7 +44,6 @@
 			await new Promise((resolve) => setTimeout(resolve, typingSpeed));
 		}
 		typing = false;
-		showPart3 = true;
 	}
 </script>
 

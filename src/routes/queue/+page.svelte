@@ -52,6 +52,6 @@
 		<video src={right} autoplay muted loop playsinline bind:this={rightVideo}></video>
 	</div>
 	<div class="absolute right-8 top-1/2 text-4xl animate-bounce">
-		<a href="/title">➡️</a>
+		<a href="/crash">➡️</a>
 	</div>
 </main>
