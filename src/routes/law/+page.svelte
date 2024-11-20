@@ -27,6 +27,9 @@
 			<Tape text="At the worst possible moment" />
 		</div>
 	{/if}
+	<div class="absolute right-8 top-1/2 text-4xl animate-bounce">
+		<a href="/info">➡️</a>
+	</div>
 </main>
 
 <style>

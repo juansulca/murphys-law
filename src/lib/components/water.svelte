@@ -9,9 +9,9 @@
 		h = map(level, 0, 90, 0, 100);
 	});
 
-	function easeInCirc(x: number) {
-		return 1 - Math.sqrt(1 - Math.pow(x, 2));
-	}
+	// function easeInCirc(x: number) {
+	// 	return 1 - Math.sqrt(1 - Math.pow(x, 2));
+	// }
 
 	function randomInt(x: number, y: number) {
 		return Math.floor(Math.random() * (y - x + 1)) + x;
@@ -20,8 +20,8 @@
 	const waveTank = new WaveTank();
 
 	const SVG_WIDTH = 100;
-	let counter = $state(0);
-	let dropY = $state(60);
+	// let counter = $state(0);
+	// let dropY = $state(60);
 	let width = $state(SVG_WIDTH);
 	let widthValue = SVG_WIDTH;
 	let springs = $state(waveTank.springs);
@@ -30,21 +30,21 @@
 	let points: number[][] = [];
 	let springsPath = $state('');
 
-	function updateJuice(timestamp: number) {
-		const amp = 40;
-		const x = timestamp / 2000;
-		const saw = x - Math.floor(x);
-		if (saw < 0.6) {
-			counter = easeInCirc(saw) * amp;
-			dropY = -100;
-		} else {
-			counter = easeInCirc(1 - saw) * amp * 0.1;
-			dropY = 70 + Math.pow(saw - 0.6, 2) * 10000;
-		}
-	}
+	// function updateJuice(timestamp: number) {
+	// 	const amp = 40;
+	// 	const x = timestamp / 2000;
+	// 	const saw = x - Math.floor(x);
+	// 	if (saw < 0.6) {
+	// 		counter = easeInCirc(saw) * amp;
+	// 		dropY = -100;
+	// 	} else {
+	// 		counter = easeInCirc(1 - saw) * amp * 0.1;
+	// 		dropY = 70 + Math.pow(saw - 0.6, 2) * 10000;
+	// 	}
+	// }
 
 	function update(timestamp: number) {
-		updateJuice(timestamp);
+		// updateJuice(timestamp);
 		waveTank.update(waveTank.springs);
 		springs = [...waveTank.springs];
 
