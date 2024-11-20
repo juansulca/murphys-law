@@ -1,4 +1,14 @@
 <main class="w-screen bg-slate-950 text-slate-50 p-8">
+	<div class="w-full flex flex-row justify-end">
+		<a
+			class="p-2 border border-slate-300 mr-4 hover:bg-slate-50 bg-slate-950 text-slate-50 hover:text-slate-950"
+			href="/science">Science</a
+		>
+		<a
+			class="p-2 border border-slate-300 mr-4 hover:bg-slate-50 bg-slate-950 text-slate-50 hover:text-slate-950"
+			href="/info">History</a
+		>
+	</div>
 	<header class="container mx-auto px-6 py-5 shadow-md rounded-lg">
 		<h1 class="text-3xl font-bold font-marker mb-4">The Science of Murphy's Law</h1>
 		<p class="mb-4">
