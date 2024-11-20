@@ -1,6 +1,8 @@
 <script lang="ts">
-	import right from '$lib/assets/right.mp4';
-	import left from '$lib/assets/left.mp4';
+	import { PUBLIC_STORAGE_BASE_URL } from '$env/static/public';
+
+	const left = `${PUBLIC_STORAGE_BASE_URL}/videos/left.mp4`;
+	const right = `${PUBLIC_STORAGE_BASE_URL}/videos/right.mp4`;
 
 	let leftVideo: HTMLVideoElement | null = null;
 	let rightVideo: HTMLVideoElement | null = null;
