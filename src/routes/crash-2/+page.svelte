@@ -19,7 +19,10 @@
 		</h2>
 	</div>
 	<div class="w-full flex flex-row justify-end">
-		<img src={soap} alt="soap foam" class="w-1/3 h-full block" />
+		<!-- <img src={soap} alt="soap foam" class="w-1/3 h-full block" /> -->
+		<div class="w-96 h-96 border border-slate-900">
+			<b>❌ soap foam</b>
+		</div>
 	</div>
 	<div class="absolute right-8 top-1/2 text-4xl animate-pulse">
 		<a href="/title">➡️</a>
