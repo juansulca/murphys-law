@@ -1,5 +1,4 @@
 <script>
-	import soap from '$lib/assets/Soap.png';
 </script>
 
 <main
@@ -17,6 +16,11 @@
 		<h2 class="text-2xl font-bold m-0 p-0 leading-tight">
 			The water’s gone, leaving you sudsy and stuck.
 		</h2>
+		<br />
+		<br />
+		<p class="mt-4">
+			<b class="font-bold">Why this happends?</b> sometimes, it's just bad luck.
+		</p>
 	</div>
 	<div class="w-full flex flex-row justify-end">
 		<!-- <img src={soap} alt="soap foam" class="w-1/3 h-full block" /> -->

@@ -46,4 +46,18 @@
 			</div>
 		{/if}
 	</div>
+	<dialog
+		open={incremented}
+		class="w-1/2 h-1/3 border border-solid p-4 border-slate-900 rounded-lg z-30"
+	>
+		<p class="mb-4">
+			<b class="font-bold">Buttered Toast Phenomenon:</b> Toast often lands butter-side down because
+			of the mechanics of rotation as it falls. Gravity and friction interact in such a way that the
+			toast doesn’t complete a full rotation from typical table heights.
+		</p>
+		<p class="mb-4">
+			<b class="font-bold">Why Tables Are This Height:</b> Table heights are optimized for human ergonomics,
+			which, in turn, are constrained by our biology and even fundamental constants of nature.
+		</p>
+	</dialog>
 </main>

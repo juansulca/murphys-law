@@ -111,5 +111,14 @@
 				</div>
 			{/if}
 		</div>
+		<dialog
+			open={score.life > 0 || score.you > 0}
+			class="w-1/2 h-1/3 border border-solid p-4 border-slate-900 rounded-lg"
+		>
+			<p class="my-auto">
+				Even with high accuracy in weather predictions, the infrequency of rain skews probabilities,
+				making it feel as though carrying an umbrella "prevents" rain.
+			</p>
+		</dialog>
 	</div>
 </main>

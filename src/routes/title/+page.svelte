@@ -4,6 +4,11 @@
 	let ch = $state(0);
 	let y = $state(0);
 	let shouldShow = $state(false);
+	let showDialog = $state(false);
+
+	function toggleDialog() {
+		showDialog = !showDialog;
+	}
 
 	let title = $state('Well, these are classical examples of');
 
@@ -59,9 +64,21 @@
 				<b class:typing>&nbsp;</b>
 			</h1>
 
-			<a href="/law" class="text-6xl text-center part-3">What is that?</a>
+			<button onclick={toggleDialog} class="text-6xl text-center part-3">What is that?</button>
 		</div>
 	{/if}
+	<dialog
+		open={showDialog && shouldShow}
+		class="w-1/2 h-1/3 border-solid border p-4 border-slate-500 rounded-lg flex flex-col justify-between"
+	>
+		<p class="mb-4">
+			Murphy's Law is a popular adage that captures the inevitability of failure or complications.
+			It humorously suggests that...
+		</p>
+		<div class="flex flex-row justify-end animate-pulse">
+			<a class="underline" href="/law">Tell me more!</a>
+		</div>
+	</dialog>
 </main>
 
 <style>
